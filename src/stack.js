@@ -14,24 +14,19 @@ const { NotImplementedError } = require('../extensions/index.js');
  */
 class Stack {
   constructor() {
-    this.storage = {};
-    this.size = 0;
+    this.storage = [];
   }
 
   push(element) {
-    this.storage[this.size] = element;
-    this.size++;
+    this.storage.push(element);
   }
 
   pop() {
-    let removed = this.storage[this.size - 1];
-    delete this.storage[this.size - 1];
-    this.size--;
-    return removed;
+    return this.storage.pop();
   }
 
   peek() {
-    return this.storage[this.size - 1];
+    return this.storage.at(-1);
   }
 }
 
